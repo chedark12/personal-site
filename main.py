@@ -25,7 +25,7 @@ class Projects(db.Model):
     img_url = db.Column(db.String(250), nullable=False)
 
 # create database
-# db.create_all()
+db.create_all()
 
 
 @app.route('/')
