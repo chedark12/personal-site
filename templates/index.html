@@ -1,0 +1,53 @@
+{% include "header.html"%}
+
+  <div class="container-fluid top-container">
+<!--    <img class="top-cloud" src="static/images/cloud.png" alt="cloud">-->
+    <div class="title-text">
+      <h1 id="chris">I'm Chris.</h1>
+      <h2>a <span class="pro">pro</span>g<span class="pro">rammer</span>.</h2>
+    </div>
+<!--    <img class="bottom-cloud" src="static/images/cloud.png" alt="cloud">-->
+    <div class="col-lg-4 col-sm-10 mx-auto">
+      <img class="img-fluid programmer" src="{{ url_for('static', filename='images/programmer.png') }}" alt="programmer-img">
+    </div>
+
+  </div>
+
+  <div id="about" class="container-fluid middle-container">
+    <div class="profile">
+      <img  class="img-fluid col-sm-6 col-lg-3 rounded-circle vw-50 profile-img" src="{{ url_for('static', filename='images/Chris.jpg') }}" alt="chris-profile-img">
+      <h2 >Chris Soriano</h2>
+      <p class="lead">"From riding the waves to surfing the ether."</p>
+      <p class="intro">I am a Python Developer. I'm a former seafarer. I ❤️watching Netflix and other tv series.</p>
+    </div>
+
+    <hr>
+
+    <div id="projects" class="container-fluid projects">
+      <h2>Projects.</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 container mx-auto ">
+        {% for project in projects %}
+        <div class="col">
+          <div class="card h-100">
+            <img src="{{ project.img_url }}" class="card-img-top img-fluid" alt="{{ project.title }}.img">
+            <div class="card-body">
+              <h5 class="card-title"><a href="{{ url_for('show_project', project_id=project.id) }}" >{{ project.title }}</a></h5>
+              <p class="card-text">{{ project.description }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <hr>
+    <div id="contact" class="contact-me">
+      <h2>Get In Touch</h2>
+      <h3>If you love my projects.</h3>
+      <p class="contact-message">Let's connect and talk!</p>
+      <a class="btn" href="mailto:chriso.soriano95@gmail.com">CONTACT ME</a>
+    </div>
+  </div>
+
+{% include "footer.html" %}
